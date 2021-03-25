@@ -34,29 +34,29 @@ class CategoriesController extends Controller
         return redirect('/categories');
     }
 
-    public function cat_edit(Categories $cat) {
-        return view('categories.cat_edit')->with('category', $cat);
+    public function cat_edit(Categories $category) {
+        return view('categories.cat_edit')->with('cat', $category);
     }
 
-    public function cat_upd(Categories $cat){
+    public function cat_upd(Categories $category){
 
         $this->validate(request(), [
-            'name'=>'required',
-            'description'=>'required'
+            'Name'=>'required',
+            'Description'=>'required'
         ]);
 
         $data = request()->all();
 
-        $cat->name = $data['name'];
-        $cat->description = $data['description'];
-        $cat->save();
+        $category->Name = $data['Name'];
+        $category->Description = $data['Description'];
+        $category->save();
 
         session()->flash('success','Category updated successfully');
         return redirect('/categories');
     }
 
-    public function cat_del(Categories $cat) {
-        $cat->delete();
+    public function cat_del(Categories $category) {
+        $category->delete();
 
         session()->flash('success','Category deleted successfully');
         return redirect('/categories');

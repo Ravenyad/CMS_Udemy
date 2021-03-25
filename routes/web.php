@@ -30,8 +30,11 @@ Route::post('/categories/create_cat', [CategoriesController::class, 'cat_create'
 Route::get('/categories/{category}/edit', [CategoriesController::class, 'cat_edit']
 )->middleware(['auth'])->name('/categories/{category}/edit');
 
-Route::post('/categories/{category}/updated', [CategoriesController::class, 'cat_upd']
-)->middleware(['auth'])->name('/categories/{category}/updated');
+Route::post('/categories/{category}/update', [CategoriesController::class, 'cat_upd']
+)->middleware(['auth'])->name('/categories/{category}/update');
+
+Route::get('/categories/{category}/delete', [CategoriesController::class, 'cat_del']
+)->middleware(['auth'])->name('/categories/{category}/delete');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -17,10 +17,10 @@
                         {{ $cat -> Name }}
 
                         <div class="btn-group m-x 2 float-right">
-                            <a href="" class="btn btn-success btn-sm">
+                            <a href="/categories/{{ $cat->id }}/edit" class="btn btn-success btn-sm">
                                 Edit
                             </a>
-                            <a href="" class="btn btn-danger btn-sm">
+                            <a href="/categories/{{ $cat->id }}/delete" class="btn btn-danger btn-sm">
                                 Delete
                             </a>
                         </div>

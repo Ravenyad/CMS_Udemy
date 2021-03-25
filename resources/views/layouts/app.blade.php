@@ -32,6 +32,18 @@
 
             <!-- Page Content -->
             <main>
+                @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+                @endif
+
+                @if(session()->has('complete'))
+                <div class="alert alert-success">
+                    {{ session()->get('complete') }}
+                </div>
+                @endif
+                
                 @yield('slot')
             </main>
         </div>

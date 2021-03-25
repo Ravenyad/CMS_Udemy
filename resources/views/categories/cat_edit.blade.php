@@ -10,25 +10,22 @@
             </div>
 
             <div class="card-body">
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="list-group">
-                        @foreach ($errors->all() as $error)
-                            <li class='list-group-item'>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
+                
 
-                <form action="/categories/create_cat" method="POST">
+                <form action="/categories/{{ $cat->id }}/update" method="POST">
                 @csrf
+                <input type="hidden" name="id" value="{{ $cat->id }}">
                 <div class="form-group">
-                    <input type="text" placeholder="category name" class="form-control" name="name">
+                    <input type="text" class="form-control" name="Name" value="{{ $cat->Name }}">
+                </div>
+
+                <div class="form-group">
+                    <textarea name="Description" placeholder="Description" cols="10" rows="5" class="form-control">{{ $cat->Description }}</textarea>
                 </div>
 
                 <div class="form-group text-center">
                     <button class="btn btn-success">
-                        Create Category
+                        Update Category
                     </button>
                 </div>
                 </form>
